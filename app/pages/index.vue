@@ -21,6 +21,7 @@
           :ref="(el) => (serviceCards[index] = el as HTMLElement)"
           class="border border-orange-100 p-5 flex flex-col gap-5 rounded-lg shadow-sm items-center text-center hover:bg-orange-50/50 transition-colors duration-200 ease-linear"
         >
+          <component :is="service.icon" :size="30" class="stroke-blue-950" />
           <h3 class="text-lg font-bold text-blue-950">
             {{ service.serviceName }}
           </h3>
@@ -158,7 +159,7 @@
     </section>
     <!-- Contact Section -->
     <section
-      class="sections w-full py-10 px-5 lg:px-10 bg-orange-100 flex flex-col gap-10 lg:gap-20 items-center justify-end"
+      class="sections w-full py-10 px-5 lg:px-10 bg-orange-100 flex flex-col gap-10 lg:gap-20 items-center"
     >
       <div
         class="section-title flex flex-col lg:flex-row items-start lg:items-end gap-2 lg:gap-5 w-full"
@@ -171,14 +172,18 @@
         <div class="h-1 bg-blue-950 w-full rounded-full"></div>
       </div>
       <div
-        class="sections pb-5 lg:px-20 w-full lg:w-3/5 h-fit lg:h-[500px] bg-blue-950 rounded-xl relative self-end flex flex-col-reverse gap-5 lg:flex-row items-center lg:items-center justify-center lg:justify-end"
+        ref="formParent"
+        class="lg:pr-10 w-full lg:w-4/5 h-fit bg-blue-950 rounded-xl relative flex flex-col-reverse gap-10 lg:flex-row-reverse items-center lg:items-center justify-center lg:justify-end"
       >
-        <div class="flex flex-col lg:flex-row items-center gap-5 lg:gap-14">
+        <div
+          class="flex flex-col lg:flex-row items-center gap-5 lg:gap-10 lg:w-2/5"
+        >
           <p class="text-white text-2xl">Or</p>
           <CallBtn phone="+0000000000"> Call us now </CallBtn>
         </div>
         <div
-          class="bg-white h-fit w-full rounded-xl lg:absolute self-center lg:-left-1/2 p-5 lg:p-10"
+          ref="form"
+          class="bg-white h-fit w-full rounded-xl lg:-left-1/2 p-5 lg:p-10 opacity-0"
         >
           <form class="flex flex-col gap-5 lg:gap-10">
             <input
@@ -253,6 +258,8 @@ const trusts = ref<HTMLElement[]>([]);
 const areas = ref<HTMLElement[]>([]);
 const sections = ref<HTMLElement | null>(null);
 const testimonials = ref<HTMLElement[]>([]);
+const form = ref<HTMLElement | null>(null);
+const formParent = ref<HTMLElement | null>(null);
 
 const trustItems = [
   {
@@ -474,6 +481,42 @@ onMounted(() => {
         delay: delay,
       });
       delay + 0.5;
+    });
+  }
+
+  if (formParent.value) {
+    gsap.from(formParent.value, {
+      x: 50,
+      opacity: 0,
+      duration: 0.7,
+      ease: "circ.out",
+      stagger: 2,
+      scrollTrigger: {
+        trigger: formParent.value,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+      onComplete: () => {
+        gsap.fromTo(
+          form.value,
+          {
+            x: -50,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: "circ.out",
+            stagger: 2,
+            scrollTrigger: {
+              trigger: formParent.value,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      },
     });
   }
 });
