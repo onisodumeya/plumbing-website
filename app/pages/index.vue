@@ -94,8 +94,8 @@
       >
         <div class="flex items-end justify-between">
           <p class="font-bold text-gray-300">{{ review.user }}</p>
-          <div class="p-1 bg-white rounded-full w-fit">
-            <component :is="GoogleIcon" />
+          <div class="p-[6px] bg-white rounded-full w-fit">
+            <MessageCircle class="stroke-none fill-blue-950" />
           </div>
         </div>
         <div class="flex items-center gap-2">
@@ -173,7 +173,7 @@
       </div>
       <div
         ref="formParent"
-        class="lg:pr-10 w-full lg:w-4/5 h-fit bg-blue-950 rounded-xl relative flex flex-col-reverse gap-10 lg:flex-row-reverse items-center lg:items-center justify-center lg:justify-end"
+        class="lg:pr-10 pb-5 lg:pb-0 w-full lg:w-4/5 h-fit bg-blue-950 rounded-xl relative flex flex-col-reverse gap-5 lg-gap-10 lg:flex-row-reverse items-center lg:items-center justify-center lg:justify-end"
       >
         <div
           class="flex flex-col lg:flex-row items-center gap-5 lg:gap-10 lg:w-2/5"
@@ -218,6 +218,11 @@
                 class="border-b p-2 outline-none w-full"
               />
             </div>
+            <input
+              type="text"
+              placeholder="Your Address"
+              class="border-b p-2 outline-none w-full"
+            />
 
             <textarea
               placeholder="How can we help?"
@@ -247,6 +252,7 @@ import {
   Thermometer,
   AlertCircle,
   MapPin,
+  MessageCircle,
 } from "lucide-vue-next";
 
 if (import.meta.client) {

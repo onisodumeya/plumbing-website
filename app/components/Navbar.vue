@@ -40,6 +40,8 @@
       <div class="h-20 flex items-center">
         <NuxtLink
           v-for="link in mainNav"
+          @mouseenter="link.pageTitle === 'Services' ? openServices() : null"
+          @mouseleave="link.pageTitle === 'Services' ? closeServices() : null"
           :to="link.pageLink"
           class="px-5 h-full text-center flex items-center justify-center text-black hover:bg-blue-200 transition-colors duration-200 ease-linear"
           :class="{
@@ -51,6 +53,20 @@
         </NuxtLink>
       </div>
     </div>
+    <div
+      @mouseenter="openServices()"
+      @mouseleave="closeServices()"
+      class="w-full bg-white flex items-center gap-5 justify-center shadow-sm"
+    >
+      <NuxtLink
+        v-for="service in services"
+        :to="service.link"
+        class="p-5 hover:bg-blue-200 transition-colors duration-200 ease-linear"
+        :class="{ hidden: !serviceLinks, flex: serviceLinks }"
+      >
+        {{ service.title }}
+      </NuxtLink>
+    </div>
   </nav>
 </template>
 <script setup lang="ts">
@@ -61,7 +77,7 @@ import { useScrollDirection } from "#imports";
 import gsap from "gsap";
 
 const route = useRoute();
-const { mainNav } = useNavigation();
+const { mainNav, services } = useNavigation();
 const { isVisible } = useScrollDirection();
 
 const currentPath = ref<string | null>(null);
@@ -72,11 +88,20 @@ const navInfo = ref<HTMLElement | null>(null);
 const navBtn = ref<HTMLElement | null>(null);
 const navbar = ref<HTMLElement | null>(null);
 const mobileNavbar = ref<HTMLElement | null>(null);
+const serviceLinks = ref(false);
 
 const emit = defineEmits(["openMenu"]);
 
 const openMenu = () => {
   emit("openMenu");
+};
+
+const openServices = () => {
+  serviceLinks.value = true;
+};
+
+const closeServices = () => {
+  serviceLinks.value = false;
 };
 
 onMounted(() => {
