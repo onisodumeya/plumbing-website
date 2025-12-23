@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-0 h-screen w-full bg-blue-950 text-white top-0 py-10 px-5 flex flex-col items-start gap-20 transition-transform duration-200 ease-linear"
+    class="fixed h-screen w-full bg-blue-950 text-white top-0 py-10 px-5 flex flex-col items-start gap-20 transition-transform duration-200 ease-linear"
     :class="{ '-translate-x-0': isMenuOpen, '-translate-x-full': !isMenuOpen }"
   >
     <!-- Header -->
