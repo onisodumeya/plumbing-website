@@ -36,7 +36,7 @@
       class="w-full px-5 lg:px-10 bg-blue-50 text-white hidden md:flex justify-between items-center transition-all duration-200 ease-linear relative z-0"
       :class="{ 'md:-translate-y-full': !isVisible }"
     >
-      <p>Logo</p>
+      <p class="text-blue-950 text-3xl">Logo</p>
       <div class="h-20 flex items-center">
         <!-- @mouseenter="link.pageTitle === 'Services' ? openServices() : null"
         @mouseleave="link.pageTitle === 'Services' ? closeServices() : null" -->

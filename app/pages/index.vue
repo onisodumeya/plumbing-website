@@ -147,7 +147,7 @@
         <h2
           class="text-2xl md:text-3xl lg:text-4xl text-center font-bold text-blue-950"
         >
-          Serving Columbus & Surrounding Areas
+          Serving Your city & Surrounding Areas
         </h2>
 
         <p class="text-center">

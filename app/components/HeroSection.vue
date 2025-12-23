@@ -79,7 +79,7 @@ const mobileHeroContent = ref<HTMLElement | null>(null);
 
 // Copywriting content
 const heroCopy = {
-  title: "The most Reliable plumbers in Columbus, Ohio",
+  title: "The most Reliable plumbers in Your city",
   subtitle:
     "Looking for reliability, fast response and a clean efficient job? You've come to the right place",
   cta1: "Call us now",

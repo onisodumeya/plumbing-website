@@ -59,13 +59,18 @@
         2025 ABC Plumbing Service. All Rights Reserved
       </p>
       <ul class="flex gap-5">
-        <li v-for="link in company">
+        <!-- <li v-for="link in company">
           <NuxtLink
             :to="link.pageLink"
             class="text-gray-400 hover:text-orange-500 transition-colors duration-200 ease-linear text-sm"
           >
             {{ link.pageTitle }}
           </NuxtLink>
+        </li> -->
+        <li>
+          <p class="text-gray-400">
+            Demo website — content shown for preview purposes
+          </p>
         </li>
       </ul>
     </div>
