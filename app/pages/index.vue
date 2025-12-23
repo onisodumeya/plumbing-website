@@ -117,10 +117,18 @@
         class="sections cta-img h-56 lg:h-80 w-full lg:w-1/2 bg-cover bg-center transition-all duration-200 ease-linear"
         :style="`background-image: url('${bgImg}')`"
       ></div>
-      <div class="sections flex flex-col gap-5 p-5">
-        <p class="text-white text-2xl lg:text-3xl">
+      <div class="sections flex flex-col gap-5 p-5 w-full lg:w-1/2 text-white">
+        <p class="text-2xl lg:text-3xl font-bold">
           Trusted Local Plumber in Your Area
         </p>
+        <p>
+          We’re a locally owned plumbing business providing fast, reliable, and
+          professional service to homes and businesses in the area. From
+          emergency repairs to routine plumbing work, we focus on quality
+          workmanship, clear communication, and getting the job done right the
+          first time.
+        </p>
+        <p class="font-bold">Need help right now? We’re ready when you are.</p>
         <div
           class="flex flex-col lg:flex-row items-start lg:items-center gap-5"
         >
@@ -130,8 +138,8 @@
       </div>
     </section>
     <!-- Service Area Section -->
-    <section class="px-5 lg:px-10">
-      <div class="sections flex flex-col gap-2 mb-10">
+    <section id="services" class="px-5 lg:px-10">
+      <div class="sections flex flex-col gap-2 mb-10 scroll-smooth">
         <h2
           class="text-2xl md:text-3xl lg:text-4xl text-center font-bold text-blue-950"
         >
@@ -159,6 +167,7 @@
     </section>
     <!-- Contact Section -->
     <section
+      id="contact"
       class="sections w-full py-10 px-5 lg:px-10 bg-orange-100 flex flex-col gap-10 lg:gap-20 items-center"
     >
       <div
@@ -240,7 +249,6 @@ import gsap from "gsap";
 import bgImg from "../assets/pngs/cta-van.png";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ref, onMounted, watch } from "vue";
-import { GoogleIcon } from "~/composables/useGoogleIcon";
 import {
   Star,
   Award,

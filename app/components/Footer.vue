@@ -41,8 +41,9 @@
           <ul class="flex flex-col gap-2">
             <li v-for="link in section.links">
               <NuxtLink
+                :target="section.title === 'Our Locations' ? '_blank' : ''"
                 :to="link.pageLink"
-                class="text-gray-400 hover:text-orange-500 transition-colors duration-200 ease-linear"
+                class="text-gray-300 hover:text-orange-500 transition-colors duration-200 ease-linear"
               >
                 {{ link.pageTitle }}
               </NuxtLink>
@@ -103,12 +104,36 @@ const footerLinks = [
   {
     title: "Our Locations",
     links: [
-      { pageLink: "", pageTitle: "Columbus" },
-      { pageLink: "", pageTitle: "Dublin" },
-      { pageLink: "", pageTitle: "Westerville" },
-      { pageLink: "", pageTitle: "Gahanna" },
-      { pageLink: "", pageTitle: "Hilliard" },
-      { pageLink: "", pageTitle: "Reynoldsburg" },
+      {
+        pageLink:
+          "https://www.google.com/maps/search/?api=1&query=123+Main+St+New+York+NY+10001",
+        pageTitle: "Columbus",
+      },
+      {
+        pageLink:
+          "https://www.google.com/maps/search/?api=1&query=123+Main+St+New+York+NY+10001",
+        pageTitle: "Dublin",
+      },
+      {
+        pageLink:
+          "https://www.google.com/maps/search/?api=1&query=123+Main+St+New+York+NY+10001",
+        pageTitle: "Westerville",
+      },
+      {
+        pageLink:
+          "https://www.google.com/maps/search/?api=1&query=123+Main+St+New+York+NY+10001",
+        pageTitle: "Gahanna",
+      },
+      {
+        pageLink:
+          "https://www.google.com/maps/search/?api=1&query=123+Main+St+New+York+NY+10001",
+        pageTitle: "Hilliard",
+      },
+      {
+        pageLink:
+          "https://www.google.com/maps/search/?api=1&query=123+Main+St+New+York+NY+10001",
+        pageTitle: "Reynoldsburg",
+      },
     ],
   },
 ];

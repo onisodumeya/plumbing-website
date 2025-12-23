@@ -38,12 +38,12 @@
     >
       <p>Logo</p>
       <div class="h-20 flex items-center">
+        <!-- @mouseenter="link.pageTitle === 'Services' ? openServices() : null"
+        @mouseleave="link.pageTitle === 'Services' ? closeServices() : null" -->
         <NuxtLink
           v-for="link in mainNav"
-          @mouseenter="link.pageTitle === 'Services' ? openServices() : null"
-          @mouseleave="link.pageTitle === 'Services' ? closeServices() : null"
           :to="link.pageLink"
-          class="px-5 h-full text-center flex items-center justify-center text-black hover:bg-blue-200 transition-colors duration-200 ease-linear"
+          class="px-5 h-full text-center flex items-center justify-center text-black hover:bg-blue-200 transition-colors duration-200 ease-linear scroll-smooth"
           :class="{
             'bg-blue-950 text-white hover:!bg-blue-950':
               currentPath === link.pageLink,
