@@ -100,6 +100,17 @@ const footerLinks = [
       },
     ],
   },
+  {
+    title: "Our Locations",
+    links: [
+      { pageLink: "", pageTitle: "Columbus" },
+      { pageLink: "", pageTitle: "Dublin" },
+      { pageLink: "", pageTitle: "Westerville" },
+      { pageLink: "", pageTitle: "Gahanna" },
+      { pageLink: "", pageTitle: "Hilliard" },
+      { pageLink: "", pageTitle: "Reynoldsburg" },
+    ],
+  },
 ];
 
 const company = [
