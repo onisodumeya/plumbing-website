@@ -24,7 +24,7 @@
       :class="{ '-translate-y-full': !isVisible }"
     >
       <p class="text-xl text-black">Logo</p>
-      <button @click.stop="openMenu" class="flex flex-col gap-[6px]">
+      <button @click.stop="handleMenuClick" class="flex flex-col gap-[6px]">
         <div class="bg-blue-950 h-[2px] w-6 rounded-full"></div>
         <div class="bg-blue-950 h-[2px] w-6 rounded-full"></div>
         <div class="bg-blue-950 h-[2px] w-6 rounded-full"></div>
@@ -90,10 +90,11 @@ const navbar = ref<HTMLElement | null>(null);
 const mobileNavbar = ref<HTMLElement | null>(null);
 const serviceLinks = ref(false);
 
-const emit = defineEmits(["openMenu"]);
+const emit = defineEmits(["toggleMenu"]);
 
-const openMenu = () => {
-  emit("openMenu");
+const handleMenuClick = () => {
+  emit("toggleMenu");
+  console.log("Button clicked");
 };
 
 const openServices = () => {

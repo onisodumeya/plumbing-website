@@ -3,7 +3,10 @@
 
   <div ref="sections" class="flex flex-col gap-28 mt-28">
     <!-- Services section -->
-    <section class="sections flex flex-col gap-10 px-5 lg:px-10">
+    <section
+      id="services"
+      class="sections flex flex-col gap-10 px-5 lg:px-10 scroll-mt-40"
+    >
       <div
         class="section-title flex flex-col lg:flex-row items-start lg:items-end gap-2 lg:gap-5"
       >
@@ -112,7 +115,7 @@
     <!-- CTA Section -->
     <section
       id="about"
-      class="sections w-full flex flex-col-reverse lg:flex-row items-center gap-5 bg-blue-950 group"
+      class="sections w-full flex flex-col-reverse lg:flex-row items-center gap-5 bg-blue-950 scroll-mt-40"
     >
       <div
         class="sections cta-img h-56 lg:h-80 w-full lg:w-1/2 bg-cover bg-center transition-all duration-200 ease-linear"
@@ -169,7 +172,7 @@
     <!-- Contact Section -->
     <section
       id="contact"
-      class="sections w-full py-10 px-5 lg:px-10 bg-orange-100 flex flex-col gap-10 lg:gap-20 items-center"
+      class="sections w-full py-10 px-5 lg:px-10 bg-orange-100 flex flex-col gap-10 lg:gap-20 items-center scroll-mt-40"
     >
       <div
         class="section-title flex flex-col lg:flex-row items-start lg:items-end gap-2 lg:gap-5 w-full"
