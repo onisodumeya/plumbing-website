@@ -59,7 +59,7 @@ onMounted(() => {
 });
 
 watch(
-  () => route.path,
+  () => route.fullPath,
   (newPath, oldPath) => {
     currentPath.value = newPath;
   }
