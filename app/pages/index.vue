@@ -111,6 +111,7 @@
     </section>
     <!-- CTA Section -->
     <section
+      id="about"
       class="sections w-full flex flex-col-reverse lg:flex-row items-center gap-5 bg-blue-950 group"
     >
       <div
