@@ -12,19 +12,19 @@
           <!-- Address -->
           <div class="flex gap-2 items-end">
             <MapPin :size="20" />
-            <p><b>Address: </b>123, Some st, Town, USA</p>
+            <p><b>Address: </b>{{ address }}</p>
           </div>
 
           <!-- Email -->
           <div class="flex gap-2 items-end">
             <Mail :size="20" />
-            <p><b>Email: </b>email@anemail.com</p>
+            <p><b>Email: </b>{{ email }}</p>
           </div>
 
           <!-- Phone -->
           <div class="flex gap-2 items-end">
             <PhoneCall :size="20" />
-            <p><b>Phone: </b>(+000) 000 0000</p>
+            <p><b>Phone: </b>{{ phone.display }}</p>
           </div>
         </div>
       </div>
@@ -56,23 +56,8 @@
       class="w-full border-t border-gray-600 pt-5 flex flex-col lg:flex-row gap-5 justify-between"
     >
       <p class="text-gray-500 text-xs">
-        2025 ABC Plumbing Service. All Rights Reserved
+        2026 Shay's Plumbing Service. All Rights Reserved
       </p>
-      <ul class="flex gap-5">
-        <!-- <li v-for="link in company">
-          <NuxtLink
-            :to="link.pageLink"
-            class="text-gray-400 hover:text-orange-500 transition-colors duration-200 ease-linear text-sm"
-          >
-            {{ link.pageTitle }}
-          </NuxtLink>
-        </li> -->
-        <li>
-          <p class="text-gray-400">
-            Demo website — content shown for preview purposes
-          </p>
-        </li>
-      </ul>
     </div>
   </footer>
 </template>
@@ -82,6 +67,7 @@ import { useNavigation } from "#imports";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { onMounted, ref } from "vue";
+import { phone, address, email } from "~/store/detailsStore";
 
 if (import.meta.client) {
   gsap.registerPlugin(ScrollTrigger);

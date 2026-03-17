@@ -35,7 +35,7 @@
         <p class="text-center text-xl font-bold text-blue-950">
           Not sure what you need? Tell us about it
         </p>
-        <CallBtn phone="+0000000000">Call us </CallBtn>
+        <CallBtn :phone="phone.number">Call us {{ phone.display }} </CallBtn>
       </div>
     </section>
 
@@ -63,12 +63,6 @@
           <component :is="item.icon" :size="24" class="stroke-blue-950" />
 
           <p class="text-center text-lg font-bold">
-            <NumberCounter
-              v-if="item.number1"
-              :end="item.number1"
-              :suffix="item.suffix"
-            />
-            <NumberCounter v-if="item.number2" :end="item.number2" />
             {{ item.title }}
           </p>
           <p class="text-center">{{ item.description }}</p>
@@ -136,7 +130,7 @@
         <div
           class="flex flex-col lg:flex-row items-start lg:items-center gap-5"
         >
-          <CallBtn phone="+0000000000"> Call us now </CallBtn>
+          <CallBtn :phone="phone.number"> Call us {{ phone.display }} </CallBtn>
           <SecondaryBtn> Book a free consultation </SecondaryBtn>
         </div>
       </div>
@@ -192,7 +186,7 @@
           class="flex flex-col lg:flex-row items-center gap-5 lg:gap-10 lg:w-2/5"
         >
           <p class="text-white text-2xl">Or</p>
-          <CallBtn phone="+0000000000"> Call us now </CallBtn>
+          <CallBtn :phone="phone.number"> Call us {{ phone.display }} </CallBtn>
         </div>
         <div
           ref="form"
@@ -252,6 +246,7 @@
 import gsap from "gsap";
 import bgImg from "../assets/pngs/cta-van.png";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { phone } from "~/store/detailsStore";
 import { ref, onMounted, watch } from "vue";
 import {
   Star,
@@ -281,32 +276,22 @@ const formParent = ref<HTMLElement | null>(null);
 
 const trustItems = [
   {
-    title: "Years Experience",
-    number1: 10,
-    number2: 0,
-    suffix: "+",
+    title: "10+ Years Experience",
     description: "Serving homes with reliable plumbing solutions",
     icon: Award,
   },
   {
-    title: "Emergency Service",
-    number1: 24,
-    number2: 7,
-    suffix: " /",
+    title: "24/7 Emergency Service",
     description: "We’re available whenever you need us",
     icon: Clock,
   },
   {
     title: "Licensed & Insured",
-    number1: 0,
-    number2: 0,
     description: "Fully certified for your peace of mind",
     icon: ShieldCheck,
   },
   {
     title: "Satisfaction Guaranteed",
-    number1: 0,
-    number2: 0,
     description: "We stand behind our work",
     icon: ThumbsUp,
   },
@@ -532,7 +517,7 @@ onMounted(() => {
               start: "top 80%",
               toggleActions: "play none none none",
             },
-          }
+          },
         );
       },
     });

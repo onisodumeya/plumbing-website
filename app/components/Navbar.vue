@@ -8,13 +8,13 @@
         ref="navInfo"
         class="flex items-center gap-3 text-gray-300 text-xs md:text-sm"
       >
-        <p>email@anemail.com</p>
+        <p>{{ email }}</p>
         <div class="h-5 w-[1px] bg-gray-300"></div>
-        <p>123, Some st, Town, USA</p>
+        <p>{{ address }}</p>
       </div>
       <!-- Call button -->
       <div ref="navBtn">
-        <CallBtn phone="+0000000000"> Call now (+000) 000 0000 </CallBtn>
+        <CallBtn :phone="phone.number"> Call now {{ phone.display }} </CallBtn>
       </div>
     </div>
     <!-- Mobile Navbar -->
@@ -23,7 +23,7 @@
       class="w-full p-5 bg-blue-50 text-white flex md:hidden justify-between items-center transition-all duration-200 ease-linear relative z-0"
       :class="{ '-translate-y-full': !isVisible }"
     >
-      <p class="text-xl text-black">Logo</p>
+      <p class="text-xl font-bold text-blue-950">Shay's Plumbing</p>
       <button @click.stop="handleMenuClick" class="flex flex-col gap-[6px]">
         <div class="bg-blue-950 h-[2px] w-6 rounded-full"></div>
         <div class="bg-blue-950 h-[2px] w-6 rounded-full"></div>
@@ -36,10 +36,8 @@
       class="w-full px-5 lg:px-10 bg-blue-50 text-white hidden md:flex justify-between items-center transition-all duration-200 ease-linear relative z-0"
       :class="{ 'md:-translate-y-full': !isVisible }"
     >
-      <p class="text-blue-950 text-3xl">Logo</p>
+      <p class="text-blue-950 text-3xl font-bold">Shay's Plumbing</p>
       <div class="h-20 flex items-center">
-        <!-- @mouseenter="link.pageTitle === 'Services' ? openServices() : null"
-        @mouseleave="link.pageTitle === 'Services' ? closeServices() : null" -->
         <NuxtLink
           v-for="link in mainNav"
           :to="link.pageLink"
@@ -75,6 +73,7 @@ import { useRoute } from "vue-router";
 import { useNavigation } from "#imports";
 import { useScrollDirection } from "#imports";
 import gsap from "gsap";
+import { phone, email, address } from "~/store/detailsStore";
 
 const route = useRoute();
 const { mainNav, services } = useNavigation();
@@ -113,7 +112,7 @@ watch(
   () => route.fullPath,
   (newPath, oldPath) => {
     currentPath.value = newPath;
-  }
+  },
 );
 
 const handleScroll = () => {

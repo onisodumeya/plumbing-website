@@ -58,7 +58,7 @@
           <div
             class="flex flex-col md:flex-row md:items-center gap-5 w-3/4 md:w-full"
           >
-            <CallBtn phone="+0000000000"> {{ heroCopy?.cta1 }} </CallBtn>
+            <CallBtn :phone="phone.number"> {{ heroCopy?.cta1 }} </CallBtn>
             <SecondaryBtn>
               {{ heroCopy?.cta2 }}
             </SecondaryBtn>
@@ -71,6 +71,7 @@
 <script setup lang="ts">
 import bgImg from "../assets/pngs/hero-image.png";
 import gsap from "gsap";
+import { phone } from "~/store/detailsStore";
 
 const heroImg = ref<HTMLElement | null>(null);
 const heroContent = ref<HTMLElement | null>(null);
@@ -82,7 +83,7 @@ const heroCopy = {
   title: "The most Reliable plumbers in Your city",
   subtitle:
     "Looking for reliability, fast response and a clean efficient job? You've come to the right place",
-  cta1: "Call us now",
+  cta1: "Call us",
   cta2: "Schedule a service",
 };
 

@@ -5,11 +5,10 @@
   >
     <!-- Header -->
     <div class="flex w-full justify-between">
-      <h1 class="text-xl">Logo</h1>
+      <h1 class="text-xl font-bold">Shay's Plumbing</h1>
 
       <!-- Close button -->
       <button @click.stop="closeMenu" class="flex items-center gap-2">
-        <p class="text-xl">close</p>
         <div
           class="w-fit h-fit flex flex-col justify-center translate-y-[2px] pr-5 relative"
         >
@@ -62,7 +61,7 @@ watch(
   () => route.fullPath,
   (newPath, oldPath) => {
     currentPath.value = newPath;
-  }
+  },
 );
 
 watch(
@@ -77,7 +76,7 @@ watch(
         document.body.style.overflow = "auto";
       }
     }
-  }
+  },
 );
 
 const closeMenu = () => {
